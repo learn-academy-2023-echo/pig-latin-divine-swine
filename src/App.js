@@ -35,15 +35,21 @@ const App = () => {
 
       // ACTION ITEM: your Pig Latin logic goes here!
       if (vowelsArray.includes(eachWord[0])) {
-        eachWord = eachWord + "way"
+        return eachWord + "way"
       } else if (eachWord.includes("qu")) {
         let quIndex = eachWord.indexOf("u") + 1
         let removedStart = eachWord.substring(0, quIndex)
         let newStart = eachWord.substring(quIndex)
-        eachWord = newStart + removedStart + "ay"
-      } else if (){
-        
+        return newStart + removedStart + "ay"
+      } else if (!vowelsArray.length && eachWord.includes("y")) {
+        return `y${eachWord}`
+      } else {
+        let start = eachWord.substring(eachWord.indexOf(vowelsArray[0]))
+        let end = eachWord.substring(0, eachWord.indexOf(vowelsArray[0])) + "ay"
+
+        return start.concat(end)
       }
+
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
     })
@@ -97,7 +103,7 @@ const App = () => {
         </div>
         <p>{inputTranslated}</p>
       </div>
-      <footer>&copy; 2023 | Coded by: Your Names Here!</footer>
+      <footer>&copy; 2023 | Coded by: The Trish & Will Show!</footer>
     </div>
   )
 }
