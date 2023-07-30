@@ -1,6 +1,8 @@
 import React, { useState } from "react"
+
+import butcherPigImage from "./assets/cute-pig.jpeg"
+
 import "./App.css"
-import butcherPigImage from "./assets/butcherPig.jpeg"
 
 const App = () => {
   // ACTION ITEM: to make the development process easier there are some preassigned words in the input field, when you are ready for your full user experience delete the test words passed to useState and pass an empty string
@@ -32,7 +34,10 @@ const App = () => {
       console.log("vowelsArray:", vowelsArray)
 
       // ACTION ITEM: your Pig Latin logic goes here!
-
+      if (vowelsArray.includes(eachWord[0])) {
+        eachWord = eachWord + "way"
+        console.log("***** ", eachWord)
+      }
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
     })
